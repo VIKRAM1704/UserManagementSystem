@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage User Details</title>
+    <link rel="stylesheet" href="UserLoginCss.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>User Login</h1>
+      <div class="button-container">
+        <a href="HomeHtml.html"><button type="button">Home</button></a>
+        <button id="logoutButton" type="button" onclick="logout()">
+          Logout
+        </button>
+      </div>
+
+      <form id="manage-form">
+        <label for="phoneNumberOrEmail">Email/Phone Number:</label>
+        <input
+          type="text"
+          id="phoneNumberOrEmail"
+          placeholder="Enter Email/Phone Number"
+        />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" />
+
+        <button type="button" onclick="fetchDetails()">Login</button>
+
+        <!-- Hidden until user details are fetched -->
+        <div id="action-buttons" class="action-buttons">
+          <button type="button" id="deleteButton" onclick="deleteDetails()">
+            Delete Details
+          </button>
+          <button type="button" id="updateButton" onclick="updateDetails()">
+            Update Details
+          </button>
+        </div>
+      </form>
+
+      <div id="registration-link" class="registration-link">
+        <p>
+          Don't have an account?
+          <a href="RegistrationHtml.HTML">Create a Registration</a>
+        </p>
+      </div>
+
+      <div id="result" class="result"></div>
+    </div>
+
+    <script src="UserLoginJavaScript.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage User Details</title>
+    <link rel="stylesheet" href="AdminLoginCss.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="HomeHtml.html">Home</a>
+      <a href="RegistrationHtml.HTML">Registration</a>
+    </div>
+
+    <div class="container">
+      <h1>Administration Login</h1>
+
+      <form id="manage-form">
+        <label for="phoneNumberOrEmail">Phone Number or Email:</label>
+        <input
+          type="text"
+          id="phoneNumberOrEmail"
+          placeholder="Enter Phone Number or Email"
+        />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Password" />
+
+        <button type="button" id="login-button" onclick="fetchAllUsers()">
+          Login
+        </button>
+      </form>
+
+      <button id="logout-button" onclick="logout()">Logout</button>
+
+      <div id="all-users" class="results"></div>
+    </div>
+
+    <script src="AdminLoginJavaScript.js"></script>
+  </body>
+</html>

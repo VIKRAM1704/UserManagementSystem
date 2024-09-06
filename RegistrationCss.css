@@ -1,0 +1,149 @@
+body {
+        background-image: url("image copy.png");
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        color: #333333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background-color: rgba(0, 123, 255, 0.8);
+        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        margin: 10px;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .navbar a:hover {
+        color: #ddd;
+      }
+
+      .container {
+        width: 80%;
+        max-width: 900px;
+        margin: 100px auto 40px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: blue;
+        font-size: 2.2em;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: white;
+        font-size: 30px;
+        background-color: #0056b3;
+        display: block;
+        padding: 6px;
+      }
+
+      .gender input,
+      .language input {
+        margin-right: 10px;
+      }
+
+      .message {
+        font-size: 14px;
+        margin-top: -10px;
+        margin-bottom: 10px;
+      }
+
+      .message.red {
+        color: red;
+      }
+
+      .message.green {
+        color: green;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-right: 10px;
+        transition: background-color 0.3s, transform 0.3s;
+        border-radius: 4px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      td {
+        padding: 4px;
+        vertical-align: top;
+      }
+
+      .dob {
+        width: 100%;
+      }
+
+      input,
+      select,
+      button {
+        font-size: 25px;
+        /* padding: 10px; */
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input:hover {
+        transform: scale(1.05);
+      }
+
+      label:hover {
+        background-color: blue;
+        color: white;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: calc(100% - 22px);
+      }
+
+      .option {
+        font-size: 16px;
+        display: inline;
+        color: white;
+      }

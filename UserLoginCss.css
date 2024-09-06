@@ -1,0 +1,84 @@
+body {
+  background-color: #f4f4f4;
+  background-image: url("image copy.png");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+input,
+select,
+button {
+  width: calc(100% - 22px);
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+button {
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #004494;
+}
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+.registration-link {
+  text-align: center;
+  margin-top: 20px;
+}
+.registration-link a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.registration-link a:hover {
+  text-decoration: underline;
+}
+.button-container {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+.button-container a {
+  text-decoration: none;
+  margin: 0 10px;
+}
+.button-container button {
+  width: auto;
+}
+.action-buttons {
+  display: none;
+}
+#logoutButton {
+  display: none;
+}

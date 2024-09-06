@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update User Details</title>
+    <style>
+      body {
+        background-color: #f4f4f4;
+        background-image: url("image copy.png");
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #0056b3;
+        margin-bottom: 20px;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select,
+      button {
+        width: calc(100% - 22px);
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #0056b3;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #004494;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Update User Details</h1>
+      <form id="update-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter new name" />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" />
+
+        <label for="gender">Gender:</label>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" placeholder="Enter new course" />
+
+        <label for="language">Languages:</label>
+        <input
+          type="text"
+          id="language"
+          placeholder="Enter new languages (comma-separated)"
+        />
+
+        <button type="button" onclick="submitUpdate()">Update Details</button>
+      </form>
+      <div id="message"></div>
+    </div>
+
+    <script>
+      const user = JSON.parse(sessionStorage.getItem("user"));
+      if (!user) {
+        alert("You must be logged in to access this page.");
+        window.location.href = "UserLoginHtml.html";
+      } else {
+        document.getElementById("name").value = user.name || "";
+        document.getElementById("dob").value = user.dob || "";
+        document.getElementById("gender").value = user.gender || "";
+        document.getElementById("course").value = user.course || "";
+        document.getElementById("language").value = user.language || "";
+      }
+
+      async function submitUpdate() {
+        const name = document.getElementById("name").value.trim();
+        const dob = document.getElementById("dob").value.trim();
+        const gender = document.getElementById("gender").value.trim();
+        const course = document.getElementById("course").value.trim();
+        const language = document.getElementById("language").value.trim();
+
+        if (!name || !dob || !gender || !course || !language) {
+          alert("All fields are required.");
+          return;
+        }
+
+        const updatedUser = { name, dob, gender, course, language };
+
+        try {
+          const phoneNumberOrEmail = user.phoneNumber || user.email;
+          const response = await fetch(
+            `http://localhost:8080/api/update/${encodeURIComponent(
+              phoneNumberOrEmail
+            )}`,
+            {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(updatedUser),
+            }
+          );
+
+          if (response.ok) {
+            const result = await response.json();
+            document.getElementById("message").innerHTML = `
+                        User details updated successfully:<br />
+                        <strong>Phone Number:</strong> ${result.phoneNumber}<br />
+                        <strong>Name:</strong> ${result.name}<br />
+                        <strong>Email:</strong> ${result.email}<br />
+                        <strong>Date of Birth:</strong> ${result.dob}<br />
+                        <strong>Gender:</strong> ${result.gender}<br />
+                        <strong>Course:</strong> ${result.course}<br />
+                        <strong>Languages:</strong> ${result.language}
+                    `;
+
+            setTimeout(() => {
+              sessionStorage.removeItem("user");
+              window.location.href = "UserLoginHtml.html";
+            }, 3000);
+          } else {
+            alert("Failed to update details.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Failed to update details.");
+        }
+      }
+    </script>
+  </body>
+</html>

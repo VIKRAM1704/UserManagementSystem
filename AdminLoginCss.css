@@ -1,0 +1,118 @@
+body {
+  background-image: url("image.png");
+  background-size: cover;
+  background-color: #f0f2f5;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 123, 255, 0.8);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.navbar a:hover {
+  color: #ddd;
+}
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+.container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+h1 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+input,
+button {
+  width: calc(100% - 22px);
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input:focus,
+button:hover {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+  outline: none;
+}
+button {
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover {
+  background-color: #004494;
+  transform: scale(1.05);
+}
+.results {
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: none;
+}
+.results.show {
+  display: block;
+  opacity: 1;
+}
+#logout-button {
+  display: none;
+}
+.registration-link {
+  text-align: center;
+  margin-top: 20px;
+}
+.registration-link a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+.registration-link a:hover {
+  text-decoration: underline;
+}

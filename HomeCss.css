@@ -126,11 +126,7 @@ nav ul li a:hover {
   nav ul li {
     margin: 0;
   }
-
-  .menu-toggle {
-    display: block;
-  }
-
+  
   .hero {
     padding: 3rem 1rem;
   }
